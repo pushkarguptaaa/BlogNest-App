@@ -1,14 +1,18 @@
+import { Link } from "react-router-dom"
+
 interface BlogCardType {
+
     authorName: string,
     title: string,
     content: string,
     publishedDate: string
+    id: string
 }
 
-export const BlogCard = ({ authorName, title, content, publishedDate }: BlogCardType) => {
-    return <div>
+export const BlogCard = ({ authorName, title, content, publishedDate, id }: BlogCardType) => {
+    return <Link to={`/blog/${id}`} >
 
-        <div className="p-4 border-b border-slate-200 pb-4">
+        <div className="p-4 border-b border-slate-200 pb-4 w-screen max-w-xl cursor-pointer">
 
             <div className="flex">
                 <Avatar name= {authorName} /> 
@@ -40,7 +44,7 @@ export const BlogCard = ({ authorName, title, content, publishedDate }: BlogCard
 
         </div>
 
-    </div>
+    </Link>
 }
 
 function Circle() {
